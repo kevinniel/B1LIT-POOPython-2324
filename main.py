@@ -52,3 +52,24 @@ t1 = Tabouret()
 print(t1)
 t2 = Tabouret(10, "bleu", 40, "plié")
 print(t2)
+
+# héritage
+class Chaise(Tabouret):
+    hauteur_dossier = 30
+    # surcharge de méthode
+    def __repr__(self):
+        # REPResentation
+        msg = (
+            f'hauteur du dossier : {self.hauteur_dossier}\n'
+            f'hauteur : {self.hauteur}\n'
+            f'couleur : {self.couleur}\n'
+            f'poid : {self.poid}\n'
+            f'état : {self.etat}\n'
+            f'--------------------\n'
+        )
+        return msg
+    def __init__(self, hauteur = 1, couleur = "noir", poid = 1, etat = "déplié", hauteur_dossier = 30):
+        # déclenche le constructeur parent
+        super().__init__(hauteur = 1, couleur = "noir", poid = 1, etat = "déplié")
+        
+        self.hauteur_dossier = hauteur_dossier
